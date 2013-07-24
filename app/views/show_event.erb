@@ -1,0 +1,10 @@
+<h1><%=@event.event_name %></h1>
+<ul>
+  <li>Scheduled for <%=@event.event_date %>.</li>
+  <li>Hosted by <%=@event.organizer_name %>.</li>
+  <li>(Contact <%=@event.organizer_email %> for more details.)</li>
+</ul>
+<form action="/events/<%=@event.id %>/delete" method="post">
+  <button type="submit">Delete Event</button>
+</form>
+<a href="/"><h2>Back to Event Listing</h2></a>

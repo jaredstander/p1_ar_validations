@@ -1,0 +1,13 @@
+<% if !@events.empty? %>
+  <h1>Events</h1>
+  <ul>
+    <% @events.each do |event| %>
+      <li><a href="/events/<%=event.id%>/show_event"><%=event.event_name%></a> Happening on <%=event.event_date%></li>
+    <% end %>
+  </ul>
+  <a href="/events/create"><h2>Create a New Event</h2></a>
+<% elsif @events.empty? %>
+  <h1 class="redirecting_message">No events exist, redirecting to create new event...</h1>
+  <script>
+    window.setTimeout(function() {window.location = "/events/create";}, 2000);</script>
+<% end %>

@@ -1,0 +1,15 @@
+<h1>Create a New Event</h1>
+<div class="create_event_dialog">
+  <h3>Please enter your event information:</h3>
+  <ul>
+    <form method="post" action="/events/create">
+      <li><input type="text" name="organizer_name" placeholder="Your name" <% if params[:organizer_name] %>value="<%=params[:organizer_name] %>"<% end %> /> <div class="errors"><% if @errors %><%=@errors[:organizer_name].first %><% end %></div></li>
+      <li><input type="text" name="organizer_email" placeholder="Your email" <% if params[:organizer_email] %>value="<%=params[:organizer_email] %>"<% end %> /> <div class="errors"><% if @errors %><%=@errors[:organizer_email].first %><% end %></div></li>
+      <li><input type="text" name="event_name" placeholder="Event name" <% if params[:event_name] %>value="<%=params[:event_name] %>"<% end %> /> <div class="errors"><% if @errors %><%=@errors[:event_name].first %><% end %></div></li>
+      <li><input type="text" name="event_date" placeholder="Event date (YYYY-MM-DD)" <% if params[:event_date] %>value="<%=params[:event_date] %>"<% end %> /> <div class="errors"><% if @errors %><%=@errors[:event_date].first %><% end %></div></li>
+      <li><button type="submit">Create New Event</button></li>
+    </form>
+  </ul>
+  <% if @message %><h3 class="save_message"><%=@message %><h3><script>$(document).ready(function () { $('.save_message').fadeOut(5000); });</script><% end %>
+  <% if !@events.empty? %><a href="/"><h3>Back to Event Listing</h3></a><% end %>
+</div>
